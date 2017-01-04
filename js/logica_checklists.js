@@ -198,6 +198,16 @@ $(document).ready(function(){
         estado(Papel, Sinab, Emp, resultado, input);
     });          
 
+    $('#regionDomicilioFamiliarPapel, #regionDomicilioFamiliarEmp').on('change', function(){            
+        var Papel = $('#regionDomicilioFamiliarPapel').val();
+        var Sinab = $('#regionDomicilioFamiliarSinab').text();
+        var Emp   = $('#regionDomicilioFamiliarEmp').val();
+        var resultado = $('#resultadoRegionDomicilioFamiliar');
+        var input = $('input[name="resultadoRegionDomicilioFamiliar"]');
+        
+        estado(Papel, Sinab, Emp, resultado, input);
+    });
+    
     $('#comuDomicilioFamiliarPapel, #comuDomicilioFamiliarEmp').on('change', function(){            
         var Papel = $('#comuDomicilioFamiliarPapel').val();
         var Sinab = $('#comuDomicilioFamiliarSinab').text();
