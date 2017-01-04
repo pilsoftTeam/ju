@@ -570,7 +570,7 @@ if('FALSE' == $existePostulante['respuesta']){
                                 </select>                            
                             </td>
                             <td class="valor-resultado text-center" style="vertical-align: middle;">
-                                <span id="resultadoComuDomicilioFamiliar" class="label"></span>
+                                <span id="resultadoRegionDomicilioFamiliar" class="label"></span>
                                 <input type="hidden" name="resultadoRegionDomicilioFamiliar" value="" />                            
                             </td>
                         </tr>
