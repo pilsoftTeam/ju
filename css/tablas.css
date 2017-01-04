@@ -1,8 +1,6 @@
-.table > thead > tr > th {
+.table > thead > tr > th{
     text-align: center;
-}
-
-.table > tbody > tr > td {
+}    
+.table > tbody > tr > td{
     vertical-align: middle;
 }
-

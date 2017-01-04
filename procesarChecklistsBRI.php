@@ -70,13 +70,14 @@ if( isset($_POST['estadoChecklist']) && $_POST['estadoChecklist'] != '' ){
     settype($bri_duracionCarreraEmp, "integer");
     settype(trim($bri_acreditadoPorCertificadoConadiPapel), "integer");
     settype(trim($bri_acreditadoPorCertificadoConadiEmp), "integer");
+    /**
     settype($bri_notaPapel, "float");    
     settype($bri_notaEmp, "float");  
     settype(trim($bri_nemPapel), "float");    
     settype(trim($bri_nemEmp), "float");
     settype(trim($bri_psuPapel), "integer");    
     settype(trim($bri_psuEmp), "integer");
-    
+    **/
     $query = "CALL BRI_SUP_InsertarDatos(".$idRevisor.", '".$bri_regionDeCreacion."', '".$bri_estadoChecklist."', '".$bri_codEstadoChecklist."', '".$rutAlumno."', "
     . "'".$dvAlumno."', '".$bri_resultadoRutAlumno."', '".$bri_obsRutAlumno."', '".$bri_nombreAlumno."', '".$bri_resultadoNombreAlumno."', '".$bri_obsNombreAlumno."', "
     . "'".$bri_domicilioAlumno."', '".$bri_tipoBecaAlumno."', '".$bri_nivelEducacional."', '".$bri_provinciaDomicilioFamiliarAlumno."', '".$bri_comunaDomicilioFamiliarAlumno."', "
@@ -86,11 +87,15 @@ if( isset($_POST['estadoChecklist']) && $_POST['estadoChecklist'] != '' ){
     . "'".$bri_duracionCarreraPapel."', '".$bri_duracionCarreraSinab."', '".$bri_duracionCarreraEmp."', '".$bri_resultadoDigiDuracionCarrera."', '".$bri_puebloIndigenaPapel."', "
     . "'".$bri_puebloIndigenaSinab."', '".$bri_puebloIndigenaEmp."', '".$bri_resultadoDigiPuebloIndigena."', '".$bri_acreditadoPorCertificadoConadiPapel."', '".$bri_acreditadoPorCertificadoConadiSinab."', "
     . "'".$bri_acreditadoPorCertificadoConadiEmp."', '".$bri_resultadoDigiAcreditadoPorCertificadoConadi."', '".$bri_acreditadoPorApellidoPapel."', '".$bri_acreditadoPorApellidoSinab."', "
-    . "'".$bri_acreditadoPorApellidoEmp."', '".$bri_resultadoDigiAcreditadoPorApellido."', '".$bri_comuDomicilioFamiliarPapel."', '".$bri_comuDomicilioFamiliarSinab."', '".$bri_comuDomicilioFamiliarEmp."', "
-    . "'".$bri_resultadoComuDomicilioFamiliar."', '".$bri_comuDomicilioEstudiosPapel."', '".$bri_comuDomicilioEstudiosSinab."', '".$bri_comuDomicilioEstudiosEmp."', '".$bri_resultadoComuDomicilioEstudios."', "    
+    . "'".$bri_acreditadoPorApellidoEmp."', '".$bri_resultadoDigiAcreditadoPorApellido."', '".$bri_regionDomicilioFamiliarPapel."', '".$bri_regionDomicilioFamiliarSinab."', '".$bri_regionDomicilioFamiliarEmp."', "    
+    . "'".$bri_resultadoRegionDomicilioFamiliar."', '".$bri_comuDomicilioFamiliarPapel."', '".$bri_comuDomicilioFamiliarSinab."', '".$bri_comuDomicilioFamiliarEmp."', "
+    . "'".$bri_resultadoComuDomicilioFamiliar."', '".$bri_comuDomicilioEstudiosPapel."', '".$bri_comuDomicilioEstudiosSinab."', '".$bri_comuDomicilioEstudiosEmp."', '".$bri_resultadoComuDomicilioEstudios."', "
+    // NEM, Aprob. curricular y PSU no aplican en BI y BRI según Obs. de Junaeb
+    /**
     . "'".$bri_notaPapel."', '".$bri_notaSinab."', '".$bri_notaEmp."', '".$bri_resultadoDigiNota."', '".$bri_nemPapel."', '".$bri_nemSinab."', '".$bri_nemEmp."', '".$bri_resultadoDigiNem."', "
     . "'".$bri_aprobacionCurricularPapel."', '".$bri_aprobacionCurricularSinab."', '".$bri_aprobacionCurricularEmp."', '".$bri_resultadoDigiAprobacionCurricular."', "
     . "'".$bri_psuPapel."', '".$bri_psuSinab."', '".$bri_psuEmp."', '".$bri_resultadoDigiPsu."', '".$bri_tramoRSHPapel."', '".$bri_tramoRSHSinab."', '".$bri_tramoRSHEmp."', '".$bri_resultadoDigitramoRSH."', "
+    **/    
     . "'".$bri_deficitApoyoFamiliarPapel."', '".$bri_deficitApoyoFamiliarSinab."', '".$bri_deficitApoyoFamiliarEmp."', '".$bri_resultadoDigiDeficitApoyoFamiliar."', "
     . "'".$bri_discapacidadPapel."', '".$bri_discapacidadSinab."', '".$bri_discapacidadEmp."', '".$bri_resultadoDigiDiscapacidad."', '".$bri_duplicidadFuncionesAlumnoPapel."', "    
     . "'".$bri_duplicidadFuncionesAlumnoSinab."', '".$bri_duplicidadFuncionesAlumnoEmp."', '".$bri_resultadoDigiDuplicidadFuncionesAlumno."', '".$bri_hermanosHijosEstudiantesPapel."', "

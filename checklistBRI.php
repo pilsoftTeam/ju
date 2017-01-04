@@ -198,7 +198,7 @@ if('FALSE' == $existePostulante['respuesta']){
                             <td class="text-center"><input type="checkbox" name="certificadoAlumnoRegular" id="" value="COMPLETO" class="revDocumental" /></td>
                         </tr>
                         <tr class="text-danger">
-                            <td>Documento de arriendo de inmueble <b class="text-primary">corregir NAME en otros checklist</b></td>
+                            <td>Documento de arriendo de inmueble</td>
                             <td class="text-center"><input type="checkbox" name="documentoArriendoInmueble" id="" value="COMPLETO" class="revDocumental" /></td>
                         </tr>                                                
                         <tr class="text-warning docOpcional">
@@ -479,9 +479,17 @@ if('FALSE' == $existePostulante['respuesta']){
                                 <input type="hidden" name="resultadoDigiAcreditadoPorCertificadoConadi" value="" />                            
                             </td>
                         </tr>
+                        <tr>
+                            <td colspan="3" class="text-right text-primary" style="background-color: yellow;">
+                                <span><b><em>&iquest; N&deg; de certificado CONADI se encuentra &quot;precargado&quot; en Sinab ?</em></b></span>
+                            </td>
+                            <td class="text-center">
+                                <input type="checkbox" name="cerfificadoConadiPrecargado" id="cerfificadoConadiPrecargado" value="SI" />
+                            </td>
+                        </tr>
                     </table>
                 </div>
-
+                
                 <!-- Acreditado x Apellido -->
                 <div class="table-responsive">
                     <table class="table table-bordered table-condensed">
@@ -518,11 +526,57 @@ if('FALSE' == $existePostulante['respuesta']){
                                 <input type="hidden" name="resultadoDigiAcreditadoPorApellido" value="" />                            
                             </td>
                         </tr>
+                        <tr>
+                            <td colspan="3" class="text-right text-primary" style="background-color: yellow;">
+                                <span><b><em>&iquest; Estudiante cuenta con apellido ind&iacute;gena &quot;directo&quot; en Sinab ?</em></b></span>
+                            </td>
+                            <td class="text-center">
+                                <input type="checkbox" name="apellidoIndigenaDirecto" id="apellidoIndigenaDirecto" value="SI" />
+                            </td>
+                        </tr>                        
                     </table>
                 </div>
 
                 <h4 class="alert alert-warning"><strong>COMUNA DE DOMICILIO</strong></h4>
 
+                <!-- Región Domicilio Familiar - SÓLO BRI -->
+                <div class="table-responsive">
+                    <table class="table table-bordered table-condensed">
+                        <tr>
+                            <td colspan="4"><h4><strong>Regi&oacute;n Domicilio Familiar</strong></h4></td>                            
+                        </tr>
+                        <tr>                            
+                            <th>Registro Formulario</th>
+                            <th>Registro Digitaci&oacute;n</th>
+                            <th>Registro Revisi&oacute;n</th>
+                            <th>RESULTADO</th>
+                        </tr>
+                        <tr>                            
+                            <td>
+                                <select class="form-control" name="regionDomicilioFamiliarPapel" id="regionDomicilioFamiliarPapel">
+                                    <option value="">Seleccione...</option>
+                                    <option value="1">1</option>
+                                </select>
+                            </td>
+                            <!-- Se debe llamar a la región del domicilio familiar en SP -->
+                            <td class="text-center bg-info" style="vertical-align: middle;">
+                                <span id="regionDomicilioFamiliarSinab"><b>1<?php #echo $antecedentesPostulante['']; ?></b></span>
+                                <input type="hidden" name="regionDomicilioFamiliarSinab" value="<?php #echo $antecedentesPostulante['']; ?>" />                            
+                            </td>
+                            <td>
+                                <select class="form-control" name="regionDomicilioFamiliarEmp" id="regionDomicilioFamiliarEmp">
+                                    <option value="">Seleccione...</option>
+                                    <option value="1">1</option>                                                            
+                                </select>                            
+                            </td>
+                            <td class="valor-resultado text-center" style="vertical-align: middle;">
+                                <span id="resultadoComuDomicilioFamiliar" class="label"></span>
+                                <input type="hidden" name="resultadoRegionDomicilioFamiliar" value="" />                            
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
                 <!-- Comuna Domicilio Familiar -->
                 <div class="table-responsive">
                     <table class="table table-bordered table-condensed">
