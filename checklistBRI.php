@@ -28,16 +28,17 @@ if('FALSE' == $existePostulante['respuesta']){
       <?php include_once 'menuInicio.php'; ?>
       <h2 class="alert alert-info text-center" id="titulo"><b>REVISI&Oacute;N BECA RESIDENCIA IND&Iacute;GENA EDU. SUPERIOR</b></h2>      
       <div class="well well-sm">        
-        <ul class="nav nav-tabs nav-justified" style="font-size: 11px; font-weight:;">
+        <ul class="nav nav-tabs nav-justified" style="font-size: 11px;">
           <li id="linkGenerales" class="pestanas"><a href="#datosGenerales" style="background: #E0E0E0;">GENERAL</a></li>
           <li id="linkDocumental" class="pestanas"><a href="#documental" style="background: #5EAEAE;">DOCUMENTAL</a></li>
           <li id="linkAntecedentes" class="pestanas"><a href="#antecedentes" style="background-color: #EC7600;">ANTECEDENTES</a></li>
           <li id="linkAcademica" class="pestanas"><a href="#academica" style="background-color: #FFFF2D;">ACAD&Eacute;MICA</a></li>
-          <li id="linkEconomica" class="pestanas"><a href="#economica" style="background-color: #9191C8">ECON&Oacute;MICA</a></li>
+          <!-- <li id="linkEconomica" class="pestanas"><a href="#economica" style="background-color: #9191C8">ECON&Oacute;MICA</a></li> -->
           <li id="linkFactoresRiesgo" class="pestanas"><a href="#factoresRiesgo" style="background-color: #FF9428">FACT. RIESGO</a></li>
           <li id="linkEducacion" class="pestanas"><a href="#educacion" style="background-color: #359AFF;">EDUCACI&Oacute;N</a></li>
           <li id="linkSocioCultural" class="pestanas"><a href="#socioCultural" style="background-color: #1AFF53">SOCIOCULTURAL</a></li>
           <li id="linkTerritorial" class="pestanas"><a href="#territorial" style="background-color: #CBCB96">TERRITORIAL</a></li>
+          <li id="linkEstadoCierre" class="pestanas"><a href="#estadoCierre" style="background-color: #0076EC;">CIERRE</a></li>
         </ul>
         
         <br />
@@ -390,7 +391,47 @@ if('FALSE' == $existePostulante['respuesta']){
                         </tr>                        
                     </table>
                 </div>
-                
+
+                <!-- Discapacidad -->
+                <!-- Falta agregar campo discapacidad a éste SP y quitarlo de SP Fac. de Riesgo -->
+                <div class="table-responsive">
+                    <table class="table table-bordered table-condensed">
+                        <tr>
+                            <td colspan="4"><h4><strong>Variable Discapacidad</strong></h4></td>                            
+                        </tr>
+                        <tr>
+                            <th>Registro Formulario</th>
+                            <th>Registro Digitaci&oacute;n</th>
+                            <th>Registro Revisi&oacute;n</th>
+                            <th>RESULTADO</th>                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="form-control" name="discapacidadPapel" id="discapacidadPapel">
+                                    <option value="">Seleccione...</option>
+                                    <option value="SI">SI</option>
+                                    <option value="NO">NO</option>
+                                </select>
+                            </td>                           
+                            <td class="text-center bg-info" style="vertical-align: middle;">
+                                <span id="discapacidadSinab"><b><?php #echo $antecedentesPostulante['discapacidad']; ?></b></span>
+                                <input type="hidden" name="discapacidadSinab" value="<?php #echo $antecedentesPostulante['discapacidad']; ?>" />                            
+                            </td>
+                            <td>
+                                <select class="form-control" name="discapacidadEmp" id="discapacidadEmp">
+                                    <option value="">Seleccione...</option>
+                                    <option value="SI">SI</option>
+                                    <option value="NO">NO</option>                        
+                                </select>                            
+                            </td>
+                            <td class="valor-resultado text-center" style="vertical-align: middle;">
+                                <span id="resultadoDigiDiscapacidad" class="label"></span>
+                                <input type="hidden" name="resultadoDigiDiscapacidad" value="" />                            
+                            </td>                                                        
+                        </tr>
+                    </table>
+                </div>
+                                
                 <h4 class="alert alert-warning"><strong>ACREDITACI&Oacute;N ASCENDENCIA IND&Iacute;GENA</strong></h4>
 
                 <!-- Dato(s) pasado(s) como oculto(s) -->
@@ -851,7 +892,8 @@ if('FALSE' == $existePostulante['respuesta']){
                 </div>                
                 </div>
                                 
-                <!-- DIM. ECONOMICA -->
+                <!-- DIM. ECONOMICA - YA NO SE REVISA (DATO VERIFICADO X ENTIDAD EXTERNA -->
+                <!--
                 <div id="verEconomica" class="dimension" style="display: none;">
                 <h3 id="economica"><strong>DIMENSI&Oacute;N ECON&Oacute;MICA</strong>
                     <span class="label label-info pull-right"><a href="#titulo" class="volver-arriba">Volver Men&uacute;</a></span>                
@@ -902,6 +944,7 @@ if('FALSE' == $existePostulante['respuesta']){
                     </table>
                 </div>
                 </div>
+                -->
                 
                 <?php
                     mysqli_free_result($result);
@@ -915,45 +958,6 @@ if('FALSE' == $existePostulante['respuesta']){
                 <h3 id="factoresRiesgo"><strong>DIMENSI&Oacute;N OTROS FACTORES DE RIESGO</strong>
                     <span class="label label-info pull-right"><a href="#titulo" class="volver-arriba">Volver Men&uacute;</a></span>
                 </h3>
-                <!-- Discapacidad -->               
-                <div class="table-responsive">
-                    <table class="table table-bordered table-condensed">
-                        <tr>
-                            <td colspan="4"><h4><strong>Variable Discapacidad</strong></h4></td>                            
-                        </tr>
-                        <tr>
-                            <th>Registro Formulario</th>
-                            <th>Registro Digitaci&oacute;n</th>
-                            <th>Registro Revisi&oacute;n</th>
-                            <th>RESULTADO</th>                            
-                        </tr>
-                        <tr>
-                            <td>
-                                <select class="form-control" name="discapacidadPapel" id="discapacidadPapel">
-                                    <option value="">Seleccione...</option>
-                                    <option value="SI">SI</option>
-                                    <option value="NO">NO</option>
-                                </select>
-                            </td>                           
-                            <td class="text-center bg-info" style="vertical-align: middle;">
-                                <span id="discapacidadSinab"><b><?php echo $dimFactRiesgo['discapacidad']; ?></b></span>
-                                <input type="hidden" name="discapacidadSinab" value="<?php echo $dimFactRiesgo['discapacidad']; ?>" />                            
-                            </td>
-                            <td>
-                                <select class="form-control" name="discapacidadEmp" id="discapacidadEmp">
-                                    <option value="">Seleccione...</option>
-                                    <option value="SI">SI</option>
-                                    <option value="NO">NO</option>                        
-                                </select>                            
-                            </td>
-                            <td class="valor-resultado text-center" style="vertical-align: middle;">
-                                <span id="resultadoDigiDiscapacidad" class="label"></span>
-                                <input type="hidden" name="resultadoDigiDiscapacidad" value="" />                            
-                            </td>                                                        
-                        </tr>
-                    </table>
-                </div>                
-
                 <!-- Déficit en red de apoyo familiar -->               
                 <div class="table-responsive">
                     <table class="table table-bordered table-condensed">
@@ -1366,7 +1370,13 @@ if('FALSE' == $existePostulante['respuesta']){
                     </table>
                 </div>
                 </div>
-                                
+
+                <!-- ESTADO DE CIERRE DE REVISIÓN -->
+                <div id="verEstadoCierre" class="dimension" style="display: none;">
+                <h3 id="estadoCierre"><strong>ESTADO CIERRE DE LA REVISI&Oacute;N</strong>
+                    <span class="label label-info pull-right"><a href="#titulo" class="volver-arriba">Volver Men&uacute;</a></span>
+                </h3>
+
                 <div class="form-group">
                     <label class="control-label col-sm-3 col-md-2"><b>Estado de Cierre Revisi&oacute;n:</b></label>
                     <div class="col-sm-9 col-md-10">
@@ -1379,10 +1389,9 @@ if('FALSE' == $existePostulante['respuesta']){
                         </select>
                         <input type="hidden" name="estadoChecklist" id="estadoChecklist" value="" />
                     </div>
-                </div>                
-                
-                <br />
-                
+                </div>
+                </div>
+
                 <div class="form-group">
                     <div class="col-md-12">
                         <button type="submit" name="guardarBRI" class="btn btn-primary btn-lg pull-right">Guardar Revisi&oacute;n</button>

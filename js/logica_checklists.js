@@ -89,6 +89,10 @@ $(document).ready(function(){
     $('#linkTerritorial').on('click', function(){
         $('#verTerritorial').toggle('slow');
     });    
+
+    $('#linkEstadoCierre').on('click', function(){
+        $('#verEstadoCierre').toggle('slow');
+    });    
     
     //Según los valores pasados x param, se entrega resultado revisión
     function estado(colPapel, colSinab, colEmp, colResultado, input){
