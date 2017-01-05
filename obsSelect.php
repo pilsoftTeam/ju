@@ -14,15 +14,19 @@ function crearSelectObservaciones($nombreObs, $nombreBeca)
     $arrayDatos = ['uno' => 'Uno', 'dos' => 'Dos', 'tres' => 'Tres'];
 
     ?>
-    <label><b>Observaciones</b></label>
-    <select class="form-control selectObservacion" name="<?php echo 'Obs'.$nombreObs ?>">
-        <?php
-        foreach ($arrayDatos as $key => $item) {
-            echo '<option value="' . $key . '">' . $item . '</option>';
-        }
+    <div class="form-group">
+        <label class="col-lg-2 control-label"><b>Observaciones</b></label>
+        <div class="col-lg-9">
+            <select class="form-control selectObservacion" name="<?php echo 'Obs' . $nombreObs ?>">
+                <?php
+                foreach ($arrayDatos as $key => $item) {
+                    echo '<option value="' . $key . '">' . $item . '</option>';
+                }
 
-        ?>
-    </select>
+                ?>
+            </select>
+        </div>
+    </div>
 
     <?php
 
