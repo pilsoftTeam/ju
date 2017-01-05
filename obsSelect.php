@@ -15,8 +15,8 @@ function crearSelectObservaciones($nombreObs, $nombreBeca)
 
     ?>
     <div class="form-group">
-        <label class="col-lg-2 control-label"><b>Observaciones</b></label>
-        <div class="col-lg-9">
+        <label class="col-lg-2 control-label"><b>Observaciones : </b></label>
+        <div class="col-lg-10">
             <select class="form-control selectObservacion" name="<?php echo 'Obs' . $nombreObs ?>">
                 <?php
                 foreach ($arrayDatos as $key => $item) {
