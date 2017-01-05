@@ -1,6 +1,5 @@
 <?php
 require_once 'config.php';
-require_once 'obsSelect.php';
 
 $tipoBeca = $_POST['beca'];
 $rutPostulante = $_POST['rutPostulante'];
@@ -79,7 +78,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-xs-4 col-sm-3 col-md-2"><b><em>ï¿½Rut Incorrecto?</em></b>
+                            <label class="control-label col-xs-4 col-sm-3 col-md-2"><b><em>¿Rut Incorrecto?</em></b>
                                 :</label>
                             <div class="col-xs-8 col-sm-9 col-md-10">
                                 <label class="checkbox-inline">
@@ -87,7 +86,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     <input type="checkbox" name="resultadoRutAlumno" id="resultadoRutAlumno"
                                            value="INCORRECTO"/>
                                     <input type="text" name="obsRutAlumno" id="obsRutAlumno"
-                                           class="form-control input-sm" placeholder="Observaciï¿½n Rut" maxlength="50"/>
+                                           class="form-control input-sm" placeholder="Observación Rut" maxlength="50"/>
                                 </label>
                             </div>
                         </div>
@@ -101,14 +100,14 @@ if ('FALSE' == $existePostulante['respuesta']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-xs-4 col-sm-3 col-md-2"><b><em>ï¿½Nombre Incorrecto?</em></b>
+                            <label class="control-label col-xs-4 col-sm-3 col-md-2"><b><em>¿Nombre Incorrecto?</em></b>
                                 :</label>
                             <div class="col-xs-8 col-sm-9 col-md-10">
                                 <label class="checkbox-inline">
                                     <input type="checkbox" name="resultadoNombreAlumno" id="resultadoNombreAlumno"
                                            value="INCORRECTO"/>
                                     <input type="text" name="obsNombreAlumno" id="obsNombreAlumno"
-                                           class="form-control input-sm" placeholder="Observaciï¿½n Nombres"
+                                           class="form-control input-sm" placeholder="Observación Nombres"
                                            maxlength="50"/>
                                 </label>
                             </div>
@@ -251,7 +250,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
                     </div>
 
                     <!-- ANTECEDENTES DEL POSTULANTE -->
-                    <!-- CREAR CONEXIï¿½N SP A ANTECEDENTES POSTULANTE AQUI -->
+                    <!-- CREAR CONEXIÓN SP A ANTECEDENTES POSTULANTE AQUI -->
                     <?php
                     mysqli_free_result($result);
                     mysqli_next_result($conexion);
@@ -304,10 +303,8 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiInstitucionEduSup', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('DigiInstitucionEduSup', 'BPA') ?>
 
                         <!-- Carrera (nombre) -->
                         <div class="table-responsive">
@@ -347,16 +344,14 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiNombreCarrera', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('DigiNombreCarrera', 'BPA') ?>
 
-                        <!-- Aï¿½o de Ingreso -->
+                        <!-- Año de Ingreso -->
                         <div class="table-responsive">
                             <table class="table table-bordered table-condensed">
                                 <tr>
-                                    <td colspan="4"><h4><strong>Aï¿½o de Ingreso</strong></h4></td>
+                                    <td colspan="4"><h4><strong>Año de Ingreso</strong></h4></td>
                                 </tr>
                                 <tr>
                                     <th>Registro Formulario</th>
@@ -409,12 +404,9 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiAnioIngresoCarrera', 'BPA');
-                            ?>
                         </div>
-
-                        <!-- Duraciï¿½n Carrera (En Semestres) -->
+                        <?php crearSelectObservaciones('DigiAnioIngresoCarrera', 'BPA') ?>
+                        <!-- Duración Carrera (En Semestres) -->
                         <div class="table-responsive">
                             <table class="table table-bordered table-condensed">
                                 <tr>
@@ -457,11 +449,8 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiDuracionCarrera', 'BPA');
-                            ?>
                         </div>
-
+                        <?php crearSelectObservaciones('DigiDuracionCarrera', 'BPA') ?>
                         <h4 class="alert alert-warning"><strong>COMUNA DE DOMICILIO</strong></h4>
 
                         <!-- Dato(s) pasado(s) como oculto(s) -->
@@ -505,10 +494,8 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('ComuDomicilioFamiliar', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('ComuDomicilioFamiliar', 'BPA') ?>
 
                         <!-- Comuna Domicilio Estudios -->
                         <div class="table-responsive">
@@ -550,10 +537,8 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('ComuDomicilioEstudios', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('ComuDomicilioEstudios', 'BPA') ?>
                     </div> <!-- /verAntecedentes -->
 
                     <?php
@@ -569,7 +554,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
                             <span class="label label-info pull-right"><a href="#titulo"
                                                                          class="volver-arriba">Volver Men&uacute;</a></span>
                         </h3>
-                        <!-- Calificaciï¿½n / Nota -->
+                        <!-- Calificación / Nota -->
                         <div class="table-responsive">
                             <table class="table table-bordered table-condensed">
                                 <tr>
@@ -628,10 +613,9 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiNota', 'BPA');
-                            ?>
                         </div>
+
+                        <?php crearSelectObservaciones('DigiNota', 'BPA') ?>
 
                         <!-- NEM -->
                         <div class="table-responsive">
@@ -671,12 +655,10 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiNem', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('DigiNem', 'BPA') ?>
 
-                        <!-- Aprobaciï¿½n Curricular -->
+                        <!-- Aprobación Curricular -->
                         <div class="table-responsive">
                             <table class="table table-bordered table-condensed">
                                 <tr>
@@ -716,10 +698,8 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiAprobacionCurricular', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('DigiAprobacionCurricular', 'BPA') ?>
 
                         <!-- PSU -->
                         <div class="table-responsive">
@@ -755,10 +735,8 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiPsu', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('DigiPsu', 'BPA') ?>
                     </div>
 
                     <!-- DIM. ECONOMICA -->
@@ -813,10 +791,8 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigitramoRSH', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('DigitramoRSH', 'BPA') ?>
                     </div>
 
                     <?php
@@ -870,12 +846,10 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiDiscapacidad', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('DigiDiscapacidad', 'BPA') ?>
 
-                        <!-- Dï¿½ficit en red de apoyo familiar -->
+                        <!-- Déficit en red de apoyo familiar -->
                         <div class="table-responsive">
                             <table class="table table-bordered table-condensed">
                                 <tr>
@@ -899,9 +873,9 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                             <option value="A Cargo de Abuelos o Parientes">A Cargo de Abuelos o
                                                 Parientes
                                             </option>
-                                            <option value="Sï¿½lo A cargo de Cuidadores">Sï¿½lo A cargo de Cuidadores
+                                            <option value="Sólo A cargo de Cuidadores">Sólo A cargo de Cuidadores
                                             </option>
-                                            <option value="Instituciï¿½n de Protecciï¿½n">Instituciï¿½n de Protecciï¿½n</option>
+                                            <option value="Institución de Protección">Institución de Protección</option>
                                         </select>
                                     </td>
                                     <td class="text-center bg-info" style="vertical-align: middle;">
@@ -919,9 +893,9 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                             <option value="A Cargo de Abuelos o Parientes">A Cargo de Abuelos o
                                                 Parientes
                                             </option>
-                                            <option value="Sï¿½lo A cargo de Cuidadores">Sï¿½lo A cargo de Cuidadores
+                                            <option value="Sólo A cargo de Cuidadores">Sólo A cargo de Cuidadores
                                             </option>
-                                            <option value="Instituciï¿½n de Protecciï¿½n">Instituciï¿½n de Protecciï¿½n</option>
+                                            <option value="Institución de Protección">Institución de Protección</option>
                                         </select>
                                     </td>
                                     <td class="valor-resultado text-center" style="vertical-align: middle;">
@@ -930,10 +904,8 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiDeficitApoyoFamiliar', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('DigiDeficitApoyoFamiliar', 'BPA') ?>
                     </div>
 
                     <?php
@@ -967,7 +939,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                         <select class="form-control" name="duplicidadFuncionesAlumnoPapel"
                                                 id="duplicidadFuncionesAlumnoPapel">
                                             <option value="">Seleccione...</option>
-                                            <option value="Sï¿½lo Estudia">Sï¿½lo Estudia</option>
+                                            <option value="Sólo Estudia">Sólo Estudia</option>
                                             <option value="Estudia y Trabaja">Estudia y Trabaja</option>
                                             <option value="Alumno estudia y es padre">Alumno estudia y es padre</option>
                                             <option value="Alumna estudia y es madre">Alumna estudia y es madre</option>
@@ -984,7 +956,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                         <select class="form-control" name="duplicidadFuncionesAlumnoEmp"
                                                 id="duplicidadFuncionesAlumnoEmp">
                                             <option value="">Seleccione...</option>
-                                            <option value="Sï¿½lo Estudia">Sï¿½lo Estudia</option>
+                                            <option value="Sólo Estudia">Sólo Estudia</option>
                                             <option value="Estudia y Trabaja">Estudia y Trabaja</option>
                                             <option value="Alumno estudia y es padre">Alumno estudia y es padre</option>
                                             <option value="Alumna estudia y es madre">Alumna estudia y es madre</option>
@@ -998,10 +970,8 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiDuplicidadFuncionesAlumno', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('DigiDuplicidadFuncionesAlumno', 'BPA') ?>
 
                         <!-- Hermanos o Hijos Estudiantes -->
                         <div class="table-responsive">
@@ -1023,13 +993,13 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                             <option value="No tiene hermanos o hijos estudiando">No tiene hermanos o
                                                 hijos estudiando
                                             </option>
-                                            <option value="En Educaciï¿½n Pre-bï¿½sica">En Educaciï¿½n Pre-bï¿½sica</option>
-                                            <option value="En Educaciï¿½n Bï¿½sica">En Educaciï¿½n Bï¿½sica</option>
-                                            <option value="En Educaciï¿½n Media">En Educaciï¿½n Media</option>
-                                            <option value="En Educaciï¿½n Superior Residencia">En Educaciï¿½n Superior
+                                            <option value="En Educación Pre-básica">En Educación Pre-básica</option>
+                                            <option value="En Educación Básica">En Educación Básica</option>
+                                            <option value="En Educación Media">En Educación Media</option>
+                                            <option value="En Educación Superior Residencia">En Educación Superior
                                                 Residencia
                                             </option>
-                                            <option value="En Educaciï¿½n Superior Fuera Residencia">En Educaciï¿½n Superior
+                                            <option value="En Educación Superior Fuera Residencia">En Educación Superior
                                                 Fuera Residencia
                                             </option>
                                         </select>
@@ -1046,13 +1016,13 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                             <option value="No tiene hermanos o hijos estudiando">No tiene hermanos o
                                                 hijos estudiando
                                             </option>
-                                            <option value="En Educaciï¿½n Pre-bï¿½sica">En Educaciï¿½n Pre-bï¿½sica</option>
-                                            <option value="En Educaciï¿½n Bï¿½sica">En Educaciï¿½n Bï¿½sica</option>
-                                            <option value="En Educaciï¿½n Media">En Educaciï¿½n Media</option>
-                                            <option value="En Educaciï¿½n Superior Residencia">En Educaciï¿½n Superior
+                                            <option value="En Educación Pre-básica">En Educación Pre-básica</option>
+                                            <option value="En Educación Básica">En Educación Básica</option>
+                                            <option value="En Educación Media">En Educación Media</option>
+                                            <option value="En Educación Superior Residencia">En Educación Superior
                                                 Residencia
                                             </option>
-                                            <option value="En Educaciï¿½n Superior Fuera Residencia">En Educaciï¿½n Superior
+                                            <option value="En Educación Superior Fuera Residencia">En Educación Superior
                                                 Fuera Residencia
                                             </option>
                                         </select>
@@ -1063,10 +1033,8 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiHermanosHijosEstudiantes', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('DigiHermanosHijosEstudiantes', 'BPA') ?>
                     </div>
 
                     <?php
@@ -1123,10 +1091,8 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiAislamientoPromedioComunal', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('DigiAislamientoPromedioComunal', 'BPA') ?>
 
                         <!-- Aislamiento de Localidades -->
                         <div class="table-responsive">
@@ -1169,10 +1135,8 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiAislamientoDeLocalidades', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('DigiAislamientoDeLocalidades', 'BPA') ?>
 
                         <!-- Lugar de Estudio del Alumno/a -->
                         <div class="table-responsive">
@@ -1195,7 +1159,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                             <option value="En la comuna">En la comuna</option>
                                             <option value="Fuera de la comuna">Fuera de la comuna</option>
                                             <option value="Fuera de la Provincia">Fuera de la Provincia</option>
-                                            <option value="Fuera de la Regiï¿½n">Fuera de la Regi&oacute;n</option>
+                                            <option value="Fuera de la Región">Fuera de la Regi&oacute;n</option>
                                         </select>
                                     </td>
                                     <td class="text-center bg-info" style="vertical-align: middle;">
@@ -1212,7 +1176,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                             <option value="En la comuna">En la comuna</option>
                                             <option value="Fuera de la comuna">Fuera de la comuna</option>
                                             <option value="Fuera de la Provincia">Fuera de la Provincia</option>
-                                            <option value="Fuera de la Regiï¿½n">Fuera de la Regi&oacute;n</option>
+                                            <option value="Fuera de la Región">Fuera de la Regi&oacute;n</option>
                                         </select>
                                     </td>
                                     <td class="valor-resultado text-center" style="vertical-align: middle;">
@@ -1221,12 +1185,11 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                 </tr>
                             </table>
-                            <?php
-                            crearSelectObservaciones('DigiLugarEstudioAlumno', 'BPA');
-                            ?>
                         </div>
+                        <?php crearSelectObservaciones('DigiLugarEstudioAlumno', 'BPA') ?>
                     </div>
-
+                    <hr>
+                    <br>
                     <div class="form-group">
                         <label class="control-label col-sm-3 col-md-2"><b>Estado de Cierre Revisi&oacute;n:</b></label>
                         <div class="col-sm-9 col-md-10">
