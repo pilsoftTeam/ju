@@ -42,6 +42,7 @@
                 </div>
                 
                 <!-- Aislamiento de Localidades -->
+                <?php if( $tipoBeca != 'BIBM' ||$tipoBeca != 'BISUP' ){ ?>
                 <div class="table-responsive">
                     <table class="table table-bordered table-condensed">
                         <tr>
@@ -77,8 +78,10 @@
                         </tr>
                     </table>
                 </div>
+                <?php } ?>
 
                 <!-- Lugar de Estudio del Alumno/a -->
+                <?php if( $tipoBeca != 'BPA' || $tipoBeca != 'BA' ){ ?>
                 <div class="table-responsive">
                     <table class="table table-bordered table-condensed">
                         <tr>
@@ -120,4 +123,5 @@
                         </tr>
                     </table>
                 </div>
+                <?php } ?>
                 </div>
