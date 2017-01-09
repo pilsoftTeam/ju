@@ -42,8 +42,10 @@
                         </tr>                        
                     </table>
                 </div>
-                
-                <!-- Carrera (nombre) -->
+                <?php crearSelectObservaciones('DigiInstitucionEduSup', $tipoBeca) ?>
+
+
+                    <!-- Carrera (nombre) -->
                 <div class="table-responsive">
                     <table class="table table-bordered table-condensed">
                         <tr>
@@ -79,6 +81,7 @@
                         </tr>                        
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiNombreCarrera', $tipoBeca) ?>
 
                 <!-- Año de Ingreso -->
                 <div class="table-responsive">
@@ -134,6 +137,7 @@
                         </tr>                        
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiAnioIngresoCarrera', $tipoBeca) ?>
 
                 <!-- Duración Carrera (En Semestres) -->
                 <div class="table-responsive">
@@ -175,6 +179,7 @@
                         </tr>                        
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiDuracionCarrera', $tipoBeca) ?>
 
                 <!-- Discapacidad -->
                 <!-- Falta agregar campo discapacidad a éste SP y quitarlo de SP Fac. de Riesgo -->
@@ -215,6 +220,7 @@
                         </tr>
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiDiscapacidad', $tipoBeca) ?>
                                 
                 <h4 class="alert alert-warning"><strong>ACREDITACI&Oacute;N ASCENDENCIA IND&Iacute;GENA</strong></h4>
 
@@ -275,6 +281,7 @@
                         </tr>
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiPuebloIndigena', $tipoBeca) ?>
 
                 <!-- Acreditado x Certificado -->               
                 <div class="table-responsive">
@@ -318,6 +325,7 @@
                         <!-- /cerfificadoConadiPrecargado -->
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiAcreditadoPorCertificadoConadi', $tipoBeca) ?>
                 
                 <!-- Acreditado x Apellido -->
                 <div class="table-responsive">
@@ -369,6 +377,7 @@
                         <!-- /apellidoIndigenaDirecto -->                        
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiAcreditadoPorApellido', $tipoBeca) ?>
 
                 <h4 class="alert alert-warning"><strong>COMUNA DE DOMICILIO</strong></h4>
 
@@ -410,6 +419,7 @@
                         </tr>
                     </table>
                 </div>
+                    <?php crearSelectObservaciones('RegionDomicilioFamiliar', $tipoBeca) ?>
                 <?php } ?>
                 
                 <!-- Comuna Domicilio Familiar -->
@@ -448,6 +458,7 @@
                         </tr>
                     </table>
                 </div>
+                <?php crearSelectObservaciones('ComuDomicilioFamiliar', $tipoBeca) ?>
 
                 <!-- Comuna Domicilio Estudios -->
                 <div class="table-responsive">
@@ -484,5 +495,6 @@
                             </td>
                         </tr>
                     </table>
-                </div>                
                 </div>
+                <?php crearSelectObservaciones('ComuDomicilioEstudios', $tipoBeca) ?>
+            </div>

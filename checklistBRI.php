@@ -1,5 +1,6 @@
 <?php
 require_once 'config.php';
+require_once 'obsSelect.php';
 
 $tipoBeca = $_POST['beca'];
 $rutPostulante = $_POST['rutPostulante'];

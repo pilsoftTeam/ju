@@ -31,32 +31,15 @@ if ('FALSE' == $existePostulante['respuesta']) {
         <h2 class="alert alert-info text-center" id="titulo"><b>REVISI&Oacute;N BECA IND&Iacute;GENA B&Aacute;SICA &amp; MEDIA</b></h2>
         <div class="well well-sm">
             <ul class="nav nav-tabs nav-justified" style="font-size: 12px; font-weight:;">
-                <li id="linkGenerales" class="pestanas">
-                    <a href="#datosGenerales" style="background: #E0E0E0;">GENERAL</a>
-                </li>
-                <li id="linkDocumental" class="pestanas">
-                    <a href="#documental" style="background: #5EAEAE;">DOCUMENTAL</a>
-                </li>
-                <li id="linkAntecedentes" class="pestanas">
-                    <a href="#antecedentes" style="background-color: #EC7600;">ANTECEDENTES</a>
-                </li>
-                <li id="linkAcademica" class="pestanas">
-                    <a href="#academica" style="background-color: #FFFF2D;">ACAD&Eacute;MICA</a>
-                </li>
-<!--
-                <li id="linkEconomica" class="pestanas">
-                    <a href="#economica" style="background-color: #9191C8">ECON&Oacute;MICA</a>
-                </li>
--->
-                <li id="linkFactoresRiesgo" class="pestanas">
-                    <a href="#factoresRiesgo" style="background-color: #FF9428">FACT. RIESGO</a>
-                </li>
-                <li id="linkEducacion" class="pestanas">
-                    <a href="#educacion" style="background-color: #359AFF;">EDUCACI&Oacute;N</a>
-                </li>
-                <li id="linkSocioCultural" class="pestanas">
-                    <a href="#socioCultural" style="background-color: #1AFF53">SOCIOCULTURAL</a>
-                </li>
+                <li id="linkGenerales" class="pestanas"><a href="#datosGenerales" style="background: #E0E0E0;">GENERAL</a></li>
+                <li id="linkDocumental" class="pestanas"><a href="#documental" style="background: #5EAEAE;">DOCUMENTAL</a></li>
+                <li id="linkAntecedentes" class="pestanas"><a href="#antecedentes" style="background-color: #EC7600;">ANTECEDENTES</a></li>
+                <li id="linkAcademica" class="pestanas"><a href="#academica" style="background-color: #FFFF2D;">ACAD&Eacute;MICA</a></li>
+                <!--<li id="linkEconomica" class="pestanas"><a href="#economica" style="background-color: #9191C8">ECON&Oacute;MICA</a></li>-->
+                <li id="linkFactoresRiesgo" class="pestanas"><a href="#factoresRiesgo" style="background-color: #FF9428">FACT. RIESGO</a></li>
+                <li id="linkEducacion" class="pestanas"><a href="#educacion" style="background-color: #359AFF;">EDUCACI&Oacute;N</a></li>
+                <li id="linkSocioCultural" class="pestanas"><a href="#socioCultural" style="background-color: #1AFF53">SOCIOCULTURAL</a></li>
+                <li id="linkEstadoCierre" class="pestanas"><a href="#estadoCierre" style="background-color: #0076EC;">CIERRE</a></li>
             </ul>
 
             <br/>
@@ -141,7 +124,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
                     $dimAcademica = mysqli_fetch_array($result);
                     ?>
 
-                    <?php require_once 'dimensiones' . '/' . 'dimAcademicaEduSUP.php'; ?>
+                    <?php require_once 'dimensiones' . '/' . 'dimAcademicaEduBM.php'; ?>
 
                     <?php require_once 'dimensiones' . '/' . 'dimEconomica.php'; ?>
 

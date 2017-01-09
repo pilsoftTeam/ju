@@ -42,6 +42,7 @@
                         </tr>
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiParticipacionOrgIndigena', $tipoBeca) ?>
                 
                 <!-- Se domicilia o vive en comunidad indígena -->
                 <div class="table-responsive">
@@ -81,6 +82,7 @@
                         </tr>
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiSeDomiciliaViveEnComunidadIndigena', $tipoBeca) ?>
 
                 <!-- Participa de prácticas culturales y/o celebraciones rituales de la comunidad o pueblo al que pertenece -->
                 <div class="table-responsive">
@@ -119,5 +121,6 @@
                             </td>                                                        
                         </tr>
                     </table>
-                </div>                                
+                </div>
+                <?php crearSelectObservaciones('DigiParticipaDePracticasCulturalesRitualesDeLaComunidad', $tipoBeca) ?>
                 </div>

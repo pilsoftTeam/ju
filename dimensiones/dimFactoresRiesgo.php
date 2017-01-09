@@ -48,4 +48,5 @@
                         </tr>
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiDeficitApoyoFamiliar', $tipoBeca) ?>
                 </div>

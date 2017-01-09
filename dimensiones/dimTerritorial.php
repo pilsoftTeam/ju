@@ -40,6 +40,7 @@
                         </tr>
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiAislamientoPromedioComunal', $tipoBeca) ?>
                 
                 <!-- Aislamiento de Localidades -->
                 <?php if( $tipoBeca != 'BIBM' ||$tipoBeca != 'BISUP' ){ ?>
@@ -78,6 +79,7 @@
                         </tr>
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiAislamientoDeLocalidades', $tipoBeca) ?>
                 <?php } ?>
 
                 <!-- Lugar de Estudio del Alumno/a -->
@@ -123,5 +125,6 @@
                         </tr>
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiLugarEstudioAlumno', $tipoBeca) ?>
                 <?php } ?>
                 </div>

@@ -1,4 +1,4 @@
-
+                <!--NO SE LE COLOCA LA FUNCION OBSERVACION YA QUE NO SE ENCUENTRA NECESARIO POR QUE NO VA JCM-->
                 <!--
                 <div id="verEconomica" class="dimension" style="display: none;">
                 <h3 id="economica"><strong>DIMENSI&Oacute;N ECON&Oacute;MICA</strong>

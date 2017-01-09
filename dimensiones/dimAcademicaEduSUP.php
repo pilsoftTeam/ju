@@ -62,6 +62,7 @@
                         </tr>
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiNota', $tipoBeca) ?>
 
                 <!-- SEGÚN OBS. DE JUNAEB, NEM, CURRICULAR Y PSU N/A PARA BRI NI BI -->
                 <?php if( $tipoBeca != 'BRI' || $tipoBeca != 'BISUP' ){ ?>
@@ -123,6 +124,7 @@
                         </tr>                        
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiNem', $tipoBeca) ?>
 
                 <!-- Aprobación Curricular -->
                 <div class="table-responsive">
@@ -160,6 +162,7 @@
                         </tr>                        
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiAprobacionCurricular', $tipoBeca) ?>
 
                 <!-- PSU -->
                 <div class="table-responsive">
@@ -191,5 +194,6 @@
                         </tr>                        
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiPsu', $tipoBeca) ?>
                 <?php } ?>
                 </div>

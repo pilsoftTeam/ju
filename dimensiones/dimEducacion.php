@@ -50,6 +50,7 @@
                         </tr>
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiDuplicidadFuncionesAlumno', $tipoBeca) ?>
                 
                 <!-- Hermanos o Hijos Estudiantes -->               
                 <div class="table-responsive">
@@ -90,9 +91,10 @@
                             </td>
                             <td class="valor-resultado text-center" style="vertical-align: middle;">
                                 <span id="resultadoDigiHermanosHijosEstudiantes" class="label"></span>
-                                <input type="hidden" name="resultadoDigiHermanosHijosEstudiantes" value="" />                            
+                                <input type="hidden" name="resultadoDigiHermanosHijosEstudiantes" value="" />
                             </td>                       
                         </tr>
                     </table>
                 </div>
+                <?php crearSelectObservaciones('DigiHermanosHijosEstudiantes', $tipoBeca) ?>
                 </div>
