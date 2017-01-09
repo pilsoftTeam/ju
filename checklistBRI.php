@@ -169,7 +169,12 @@ if('FALSE' == $existePostulante['respuesta']){
                 
                 <?php require_once 'dimensiones' . '/' . 'dimTerritorial.php'; ?>
 
+                <hr />
+                <br />                
+
                 <?php require_once 'dimensiones' . '/' . 'estadoCierreRev.php'; ?>
+                
+                <br />
 
                 <div class="form-group">
                     <div class="col-md-12">
