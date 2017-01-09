@@ -44,8 +44,7 @@
                 </div>
                 <?php crearSelectObservaciones('DigiInstitucionEduSup', $tipoBeca) ?>
 
-
-                    <!-- Carrera (nombre) -->
+                <!-- Carrera (nombre) -->
                 <div class="table-responsive">
                     <table class="table table-bordered table-condensed">
                         <tr>
@@ -419,7 +418,7 @@
                         </tr>
                     </table>
                 </div>
-                    <?php crearSelectObservaciones('RegionDomicilioFamiliar', $tipoBeca) ?>
+                <?php crearSelectObservaciones('RegionDomicilioFamiliar', $tipoBeca) ?>
                 <?php } ?>
                 
                 <!-- Comuna Domicilio Familiar -->
