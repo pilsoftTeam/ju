@@ -41,7 +41,7 @@ if('FALSE' == $existePostulante['respuesta']){
         
         <br />
         
-        <form action="procesarChecklistsBRI.php" method="post" id="checklistForm" class="form-horizontal" role="form">
+        <form action="procesarChecklistBRI.php" method="post" id="checklistForm" class="form-horizontal" role="form">
             <fieldset>
                 <?php
                     mysqli_free_result($result);
