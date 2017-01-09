@@ -4,6 +4,47 @@
                     <h3 id="antecedentes"><strong>ANTECEDENTES DEL POSTULANTE</strong>
                         <span class="label label-info pull-right"><a href="#titulo" class="volver-arriba">Volver Men&uacute;</a></span>
                     </h3>
+                    <!-- Nombre Establecimiento -->               
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-condensed">
+                            <tr>
+                                <td colspan="4">
+                                    <h4><strong>Establecimiento Educacional</strong><span class="text-warning"> [Lista BD]</span></h4>
+                                </td>                            
+                            </tr>
+                            <tr>                            
+                                <th>Registro Formulario</th>
+                                <th>Registro Digitaci&oacute;n</th>
+                                <th>Registro Revisi&oacute;n</th>
+                                <th>RESULTADO</th>                            
+                            </tr>
+                            <tr>                            
+                                <td>
+                                    <select class="form-control" name="nombreEstEducacionalPapel" id="nombreEstEducacionalPapel">
+                                        <option value="">Seleccione...</option>
+                                        <option value="Establecimiento">Establecimiento</option>
+                                    </select>
+                                </td>
+                                <td class="text-center bg-info" style="vertical-align: middle;">
+                                    <span id="nombreEstEducacionalSinab"><b>Establecimiento<?php //echo  ?></b></span>
+                                    <input type="hidden" name="nombreEstEducacionalSinab" value="<?php //echo  ?>" />                            
+                                </td>
+                                <td>
+                                    <select class="form-control" name="nombreEstEducacionalEmp" id="nombreEstEducacionalEmp">
+                                        <option value="">Seleccione...</option>
+                                        <option value="Establecimiento">Establecimiento</option>
+                                    </select>                            
+                                </td>
+                                <td class="valor-resultado text-center" style="vertical-align: middle;">
+                                    <span id="resultadoDigiNombreEstEducacional" class="label"></span>
+                                    <input type="hidden" name="resultadoDigiNombreEstEducacional" value="" />                            
+                                </td>
+                            </tr>                        
+                        </table>
+                    </div>
+                    
+                    <?php crearSelectObservaciones('DigiNombreEstEducacional', $tipoBeca) ?>
+                                    
                     <!-- Curso -->
                     <div class="table-responsive">
                         <table class="table table-bordered table-condensed">
@@ -64,9 +105,51 @@
                             </tr>
                         </table>
                     </div>
-
+                    
                     <?php crearSelectObservaciones('EduBasicaMedia', $tipoBeca) ?>
 
+                    <!-- Discapacidad -->
+                    <!-- Falta agregar campo discapacidad a éste SP y quitarlo de SP Fac. de Riesgo -->
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-condensed">
+                            <tr>
+                                <td colspan="4"><h4><strong>Variable Discapacidad</strong></h4></td>                            
+                            </tr>
+                            <tr>
+                                <th>Registro Formulario</th>
+                                <th>Registro Digitaci&oacute;n</th>
+                                <th>Registro Revisi&oacute;n</th>
+                                <th>RESULTADO</th>                            
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select class="form-control" name="discapacidadPapel" id="discapacidadPapel">
+                                        <option value="">Seleccione...</option>
+                                        <option value="SI">SI</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                                </td>                           
+                                <td class="text-center bg-info" style="vertical-align: middle;">
+                                    <span id="discapacidadSinab"><b>NO<?php #echo $antecedentesPostulante['discapacidad']; ?></b></span>
+                                    <input type="hidden" name="discapacidadSinab" value="<?php #echo $antecedentesPostulante['discapacidad']; ?>" />                            
+                                </td>
+                                <td>
+                                    <select class="form-control" name="discapacidadEmp" id="discapacidadEmp">
+                                        <option value="">Seleccione...</option>
+                                        <option value="SI">SI</option>
+                                        <option value="NO">NO</option>                        
+                                    </select>                            
+                                </td>
+                                <td class="valor-resultado text-center" style="vertical-align: middle;">
+                                    <span id="resultadoDigiDiscapacidad" class="label"></span>
+                                    <input type="hidden" name="resultadoDigiDiscapacidad" value="" />                            
+                                </td>                                                        
+                            </tr>
+                        </table>
+                    </div>                    
+
+                    <?php crearSelectObservaciones('DigiDiscapacidad', $tipoBeca) ?>
+                    
                     <h4 class="alert alert-warning"><strong>ACREDITACI&Oacute;N ASCENDENCIA IND&Iacute;GENA</strong></h4>
 
                     <!-- Dato(s) pasado(s) como oculto(s) -->
@@ -161,6 +244,18 @@
                                     <input type="hidden" name="resultadoDigiAcreditadoPorCertificadoConadi" value=""/>
                                 </td>
                             </tr>
+                            <!-- Sólo Aplica para BRI y las BI -->
+                            <?php if( $tipoBeca == 'BRI' || $tipoBeca == 'BIBM' ){ ?>
+                            <tr>                        
+                                <td colspan="3" class="text-right text-primary" style="background-color: yellow;">
+                                    <span><b><em>&iquest; N&deg; de certificado CONADI se encuentra &quot;precargado&quot; en Sinab ?</em></b></span>
+                                </td>
+                                <td class="text-center">
+                                    <input type="checkbox" name="cerfificadoConadiPrecargado" id="cerfificadoConadiPrecargado" value="SI" />
+                                </td>
+                            </tr>
+                            <?php } ?>
+                            <!-- /cerfificadoConadiPrecargado -->                            
                         </table>
                     </div>
                     
@@ -202,6 +297,18 @@
                                     <input type="hidden" name="resultadoDigiAcreditadoPorApellido" value=""/>
                                 </td>
                             </tr>
+                            <!-- Sólo Aplica para BRI y las BI -->
+                            <?php if( $tipoBeca == 'BRI' || $tipoBeca == 'BIBM' ){ ?>
+                            <tr>
+                                <td colspan="3" class="text-right text-primary" style="background-color: yellow;">
+                                    <span><b><em>&iquest; Estudiante cuenta con apellido ind&iacute;gena &quot;directo&quot; en Sinab ?</em></b></span>
+                                </td>
+                                <td class="text-center">
+                                    <input type="checkbox" name="apellidoIndigenaDirecto" id="apellidoIndigenaDirecto" value="SI" />
+                                </td>
+                            </tr>
+                            <?php } ?>
+                            <!-- /apellidoIndigenaDirecto -->                            
                         </table>
                     </div>
                     <?php crearSelectObservaciones('DigiAcreditadoPorApellido', $tipoBeca) ?>
