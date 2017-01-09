@@ -61,7 +61,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
 
             <br/>
             <!--  enctype="multipart/form-data" -->
-            <form action="procesarChecklistsBIBM.php" method="post" id="checklistForm" class="form-horizontal" role="form">
+            <form action="procesarChecklistBIBM.php" method="post" id="checklistForm" class="form-horizontal" role="form">
                 <fieldset>
                     <?php
                     mysqli_free_result($result);
