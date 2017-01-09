@@ -114,6 +114,7 @@ $(document).ready(function(){
             colResultado.text('INCORRECTO');
             
         }
+        alert('Estados de Papel: ' + colPapel + ' Sinab: ' + colSinab + ' Emp: ' + colEmp);
         input.val(colResultado.text());
         if( colResultado.text() != '' ){
             //alert('Estado cambiado a: ' + colResultado.text());
@@ -131,6 +132,16 @@ $(document).ready(function(){
         
         estado(Papel, Sinab, Emp, resultado, input);
     });
+
+    $('#nombreEstEducacionalPapel, #nombreEstEducacionalEmp').on('change', function(){            
+        var Papel = $('#nombreEstEducacionalPapel').val();
+        var Sinab = $('#nombreEstEducacionalSinab').text();
+        var Emp   = $('#nombreEstEducacionalEmp').val();
+        var resultado = $('#resultadoDigiNombreEstEducacional');
+        var input = $('input[name="resultadoDigiNombreEstEducacional"]');
+        
+        estado(Papel, Sinab, Emp, resultado, input);
+    });    
     
     $('#institucionEduSupPapel, #institucionEduSupEmp').on('change', function(){            
         var Papel = $('#institucionEduSupPapel').val();
