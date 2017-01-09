@@ -28,8 +28,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
 
     <div class="container">
         <?php include_once 'menuInicio.php'; ?>
-        <h2 class="alert alert-info text-center" id="titulo"><b>REVISI&Oacute;N BECA IND&Iacute;GENA B&Aacute;SICA &amp;
-                MEDIA</b></h2>
+        <h2 class="alert alert-info text-center" id="titulo"><b>REVISI&Oacute;N BECA IND&Iacute;GENA B&Aacute;SICA &amp; MEDIA</b></h2>
         <div class="well well-sm">
             <ul class="nav nav-tabs nav-justified" style="font-size: 12px; font-weight:;">
                 <li id="linkGenerales" class="pestanas">
@@ -44,9 +43,11 @@ if ('FALSE' == $existePostulante['respuesta']) {
                 <li id="linkAcademica" class="pestanas">
                     <a href="#academica" style="background-color: #FFFF2D;">ACAD&Eacute;MICA</a>
                 </li>
+<!--
                 <li id="linkEconomica" class="pestanas">
                     <a href="#economica" style="background-color: #9191C8">ECON&Oacute;MICA</a>
                 </li>
+-->
                 <li id="linkFactoresRiesgo" class="pestanas">
                     <a href="#factoresRiesgo" style="background-color: #FF9428">FACT. RIESGO</a>
                 </li>
@@ -60,8 +61,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
 
             <br/>
             <!--  enctype="multipart/form-data" -->
-            <form action="procesarChecklistsBIBM.php" method="post" id="checklistForm" class="form-horizontal"
-                  role="form">
+            <form action="procesarChecklistsBIBM.php" method="post" id="checklistForm" class="form-horizontal" role="form">
                 <fieldset>
                     <?php
                     mysqli_free_result($result);
@@ -69,7 +69,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
                     $result = mysqli_query($conexion, "CALL Consulta_Datos_Postulante($rutPostulante)") or die(mysqli_error($conexion));
                     $datosGrales = mysqli_fetch_array($result);
                     ?>
-                    <!-- DATOS GENERALES -->
+                    
                     <?php require_once 'dimensiones' . '/' . 'datosGenerales.php'; ?>
 
                     <!-- DOCUMENTAL -->
@@ -125,8 +125,6 @@ if ('FALSE' == $existePostulante['respuesta']) {
                         </div>
                     </div>
 
-                    <!-- ANTECEDENTES DEL POSTULANTE -->
-
                     <?php require_once 'dimensiones' . '/' . 'antecedentesEduBM.php'; ?>
 
                     <?php
@@ -136,11 +134,8 @@ if ('FALSE' == $existePostulante['respuesta']) {
                     $dimAcademica = mysqli_fetch_array($result);
                     ?>
 
-                    <!-- DIM. ACADEMICA -->
-
                     <?php require_once 'dimensiones' . '/' . 'dimAcademicaEduSUP.php'; ?>
 
-                    <!-- DIM. ECONOMICA -->
                     <?php require_once 'dimensiones' . '/' . 'dimEconomica.php'; ?>
 
                     <?php
@@ -150,9 +145,8 @@ if ('FALSE' == $existePostulante['respuesta']) {
                     $dimFactRiesgo = mysqli_fetch_array($result);
                     ?>
 
-                    <!-- DIM. OTROS FACTORES DE RIESGO -->
-
                     <?php require_once 'dimensiones' . '/' . 'dimFactoresRiesgo.php'; ?>
+                    
                     <?php
                     mysqli_free_result($result);
                     mysqli_next_result($conexion);
@@ -160,7 +154,6 @@ if ('FALSE' == $existePostulante['respuesta']) {
                     $dimEducacion = mysqli_fetch_array($result);
                     ?>
 
-                    <!-- DIM. EDUCACION -->
                     <?php require_once 'dimensiones' . '/' . 'dimEducacion.php'; ?>
 
                     <?php
@@ -170,20 +163,18 @@ if ('FALSE' == $existePostulante['respuesta']) {
                     $dimSocioCultural = mysqli_fetch_array($result);
                     ?>
 
-                    <!-- DIM. SOCIOCULTURAL -->
                     <?php require_once 'dimensiones' . '/' . 'dimSocioCultural.php'; ?>
-                    <hr>
-                    <br>
-                    <!-- ESTADO CIERRE -->
+                    
+                    <hr />
+                    <br />
+                    
                     <?php require_once 'dimensiones' . '/' . 'estadoCierreRev.php'; ?>
 
-                    <br/>
+                    <br />
 
                     <div class="form-group">
                         <div class="col-md-12">
-                            <button type="submit" name="guardarBIBM" class="btn btn-primary btn-lg pull-right">
-                                Guardar Revisi&oacute;n
-                            </button>
+                            <button type="submit" name="guardarBIBM" class="btn btn-primary btn-lg pull-right">Guardar Revisi&oacute;n</button>
                         </div>
                     </div>
                 </fieldset>
