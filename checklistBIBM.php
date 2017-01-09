@@ -125,6 +125,13 @@ if ('FALSE' == $existePostulante['respuesta']) {
                         </div>
                     </div>
 
+                    <?php 
+                        mysqli_free_result($result);
+                        mysqli_next_result($conexion);
+                        $result = mysqli_query($conexion, "CALL Datos_AP($rutPostulante)") or die(mysqli_error($conexion));
+                        $antecedentesPostulante = mysqli_fetch_array($result);
+                    ?>                    
+
                     <?php require_once 'dimensiones' . '/' . 'antecedentesEduBM.php'; ?>
 
                     <?php
