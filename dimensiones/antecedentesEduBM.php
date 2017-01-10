@@ -77,9 +77,7 @@
                                     </select>
                                 </td>
                                 <td class="text-center bg-info" style="vertical-align: middle;">
-                                    <span id="cursoBasicaMediaSinab">
-                                        <b><?php echo $datosGrales['curso']; ?></b>
-                                    </span>
+                                    <span id="cursoBasicaMediaSinab"><b><?php #echo $datosGrales['curso']; ?></b></span>
                                     <input type="hidden" name="cursoBasicaMediaSinab" value="<?php echo $datosGrales['curso']; ?>"/>
                                 </td>
                                 <td>
@@ -184,9 +182,7 @@
                                     </select>
                                 </td>
                                 <td class="text-center bg-info" style="vertical-align: middle;">
-                                    <span id="puebloIndigenaSinab">
-                                        <b><?php echo $antecedentesPostulante['etnia_bi']; ?></b>
-                                    </span>
+                                    <span id="puebloIndigenaSinab"><b><?php echo $antecedentesPostulante['etnia_bi']; ?></b></span>
                                     <input type="hidden" name="puebloIndigenaSinab" value="<?php echo $antecedentesPostulante['etnia_bi']; ?>"/>
                                 </td>
                                 <td>
@@ -231,9 +227,7 @@
                                     <input type="number" name="acreditadoPorCertificadoConadiPapel" id="acreditadoPorCertificadoConadiPapel" class="form-control" min="0" max="99999999" step="1" required="required" maxlength="8"/>
                                 </td>
                                 <td class="text-center bg-info" style="vertical-align: middle;">
-                                    <span id="acreditadoPorCertificadoConadiSinab">
-                                        <b><?php echo $antecedentesPostulante['certificado_conadi']; ?></b>
-                                    </span>
+                                    <span id="acreditadoPorCertificadoConadiSinab"><b><?php echo $antecedentesPostulante['certificado_conadi']; ?></b></span>
                                     <input type="hidden" name="acreditadoPorCertificadoConadiSinab" value="<?php echo $antecedentesPostulante['certificado_conadi']; ?>"/>
                                 </td>
                                 <td>
