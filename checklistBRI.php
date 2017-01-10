@@ -27,7 +27,7 @@ if('FALSE' == $existePostulante['respuesta']){
       <?php include_once 'menuInicio.php'; ?>
       <h2 class="alert alert-info text-center" id="titulo"><b>REVISI&Oacute;N BECA RESIDENCIA IND&Iacute;GENA EDU. SUPERIOR</b></h2>      
       <div class="well well-sm">        
-        <ul class="nav nav-tabs nav-justified" style="font-size: 11px;">
+        <ul class="nav nav-tabs nav-justified" style="font-size: 12px;">
           <li id="linkGenerales" class="pestanas"><a href="#datosGenerales" style="background: #E0E0E0;">GENERAL</a></li>
           <li id="linkDocumental" class="pestanas"><a href="#documental" style="background: #5EAEAE;">DOCUMENTAL</a></li>
           <li id="linkAntecedentes" class="pestanas"><a href="#antecedentes" style="background-color: #EC7600;">ANTECEDENTES</a></li>
