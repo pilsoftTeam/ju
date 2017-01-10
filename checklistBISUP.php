@@ -40,13 +40,13 @@ if ('FALSE' == $existePostulante['respuesta']) {
                 <li id="linkFactoresRiesgo" class="pestanas"><a href="#factoresRiesgo" style="background-color: #FF9428">FACT. RIESGO</a></li>
                 <li id="linkEducacion" class="pestanas"><a href="#educacion" style="background-color: #359AFF;">EDUCACI&Oacute;N</a></li>
                 <li id="linkSocioCultural" class="pestanas"><a href="#socioCultural" style="background-color: #1AFF53">SOCIOCULTURAL</a></li>
+                <li id="linkTerritorial" class="pestanas"><a href="#territorial" style="background-color: #CBCB96">TERRITORIAL</a></li>
                 <li id="linkEstadoCierre" class="pestanas"><a href="#estadoCierre" style="background-color: #0076EC;">CIERRE</a></li>
             </ul>
 
             <br/>
-            <!--  enctype="multipart/form-data" -->
-            <form action="procesarChecklistsBISUP.php" method="post" id="checklistForm" class="form-horizontal"
-                  role="form">
+            
+            <form action="procesarChecklistBISUP.php" method="post" id="checklistForm" class="form-horizontal" role="form">
                 <fieldset>
                     <?php
                     mysqli_free_result($result);
@@ -74,9 +74,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                         </h4>
                                     </td>
                                     <th class="text-center">
-                                        <h4>
-                                            <strong>BI SUP</strong>
-                                        </h4>
+                                        <h4><strong>BI SUP</strong></h4>
                                     </th>
                                 </tr>
                                 <tr class="text-danger">
@@ -111,13 +109,15 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                 </tr>
                                 <tr class="text-danger">
                                     <td>Certificado de alumno regular</td>
-                                    <td class="text-center"><input type="checkbox" name="certificadoAlumnoRegular" id=""
-                                                                   value="COMPLETO" class="revDocumental"/></td>
+                                    <td class="text-center">
+                                        <input type="checkbox" name="certificadoAlumnoRegular" id="" value="COMPLETO" class="revDocumental"/>
+                                    </td>
                                 </tr>
                                 <tr class="text-warning docOpcional">
                                     <td>Certificado de embarazo</td>
-                                    <td class="text-center"><input type="checkbox" name="certificadoEmbarazo" id=""
-                                                                   value="COMPLETO" class="revDocumental"/></td>
+                                    <td class="text-center">
+                                        <input type="checkbox" name="certificadoEmbarazo" id="" value="COMPLETO" class="revDocumental"/>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -175,17 +175,26 @@ if ('FALSE' == $existePostulante['respuesta']) {
 
                     <!-- DIM. SOCIOCULTURAL -->
                     <?php require_once 'dimensiones' .'/'. 'dimSocioCultural.php' ?>
-                    <hr>
-                    <br>
+
+                    <?php
+                        mysqli_free_result($result);
+                        mysqli_next_result($conexion);
+                        //$result = mysqli_query($conexion, "CALL Datos_DS($rutPostulante)") or die(mysqli_error($conexion));
+                        //$dimTerritorial = mysqli_fetch_array($result);
+                    ?>
+                
+                    <?php require_once 'dimensiones' . '/' . 'dimTerritorial.php'; ?> 
+                                        
+                    <hr />
+                    <br />
+                    
                     <?php require_once 'dimensiones' . '/' . 'estadoCierreRev.php'; ?>
 
-                    <br/>
+                    <br />
 
                     <div class="form-group">
                         <div class="col-md-12">
-                            <button type="submit" name="guardarBISUP" class="btn btn-primary btn-lg pull-right">Guardar
-                                Revisi&oacute;n
-                            </button>
+                            <button type="submit" name="guardarBISUP" class="btn btn-primary btn-lg pull-right">Guardar Revisi&oacute;n</button>
                         </div>
                     </div>
                 </fieldset>
