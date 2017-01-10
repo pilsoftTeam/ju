@@ -96,6 +96,11 @@ $(document).ready(function(){
     
     //Según los valores pasados x param, se entrega resultado revisión
     function estado(colPapel, colSinab, colEmp, colResultado, input){
+        
+        colPapel.trim();
+        colSinab.trim();
+        colEmp.trim();
+        
         if( colPapel == '' || colEmp == '' ){
             if(colResultado.is('.label-danger')){
                 colResultado.removeClass('label-danger'); //evita doble .danger    
@@ -114,7 +119,7 @@ $(document).ready(function(){
             colResultado.text('INCORRECTO');
             
         }
-        alert('Estados de Papel: ' + colPapel + ' Sinab: ' + colSinab + ' Emp: ' + colEmp);
+        //alert('Estados de Papel: ' + colPapel + ' Sinab: ' + colSinab + ' Emp: ' + colEmp);
         input.val(colResultado.text());
         if( colResultado.text() != '' ){
             //alert('Estado cambiado a: ' + colResultado.text());
