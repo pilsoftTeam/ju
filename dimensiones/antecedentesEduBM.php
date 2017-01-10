@@ -77,7 +77,7 @@
                                     </select>
                                 </td>
                                 <td class="text-center bg-info" style="vertical-align: middle;">
-                                    <span id="cursoBasicaMediaSinab"><b><?php #echo $datosGrales['curso']; ?></b></span>
+                                    <span id="cursoBasicaMediaSinab"><b><?php echo $datosGrales['curso']; ?></b></span>
                                     <input type="hidden" name="cursoBasicaMediaSinab" value="<?php echo $datosGrales['curso']; ?>"/>
                                 </td>
                                 <td>
