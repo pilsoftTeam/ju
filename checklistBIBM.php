@@ -39,6 +39,7 @@ if ('FALSE' == $existePostulante['respuesta']) {
                 <li id="linkFactoresRiesgo" class="pestanas"><a href="#factoresRiesgo" style="background-color: #FF9428">FACT. RIESGO</a></li>
                 <li id="linkEducacion" class="pestanas"><a href="#educacion" style="background-color: #359AFF;">EDUCACI&Oacute;N</a></li>
                 <li id="linkSocioCultural" class="pestanas"><a href="#socioCultural" style="background-color: #1AFF53">SOCIOCULTURAL</a></li>
+                <li id="linkTerritorial" class="pestanas"><a href="#territorial" style="background-color: #CBCB96">TERRITORIAL</a></li>
                 <li id="linkEstadoCierre" class="pestanas"><a href="#estadoCierre" style="background-color: #0076EC;">CIERRE</a></li>
             </ul>
 
@@ -154,6 +155,15 @@ if ('FALSE' == $existePostulante['respuesta']) {
                     ?>
 
                     <?php require_once 'dimensiones' . '/' . 'dimSocioCultural.php'; ?>
+
+                    <?php
+                        mysqli_free_result($result);
+                        mysqli_next_result($conexion);
+                        //$result = mysqli_query($conexion, "CALL Datos_DS($rutPostulante)") or die(mysqli_error($conexion));
+                        //$dimTerritorial = mysqli_fetch_array($result);
+                    ?>
+                
+                    <?php require_once 'dimensiones' . '/' . 'dimTerritorial.php'; ?>                    
                     
                     <hr />
                     <br />
