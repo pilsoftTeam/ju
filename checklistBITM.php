@@ -41,11 +41,12 @@ if('FALSE' == $existePostulante['respuesta']){
           <li id="linkFactoresRiesgo" class="pestanas"><a href="#factoresRiesgo" style="background-color: #FF9428">FACT. RIESGO</a></li>
           <li id="linkEducacion" class="pestanas"><a href="#educacion" style="background-color: #359AFF;">EDUCACI&Oacute;N</a></li>
           <li id="linkTerritorial" class="pestanas"><a href="#territorial" style="background-color: #CBCB96">TERRITORIAL</a></li>
+          <li id="linkEstadoCierre" class="pestanas"><a href="#estadoCierre" style="background-color: #0076EC;">CIERRE</a></li>
         </ul>
         
         <br />
         <!--  enctype="multipart/form-data" -->
-        <form action="procesarChecklistsBITM.php" method="post" id="checklistForm" class="form-horizontal" role="form">
+        <form action="procesarChecklistBITM.php" method="post" id="checklistForm" class="form-horizontal" role="form">
             <fieldset>
                 <?php
                     mysqli_free_result($result);
@@ -88,6 +89,7 @@ if('FALSE' == $existePostulante['respuesta']){
                 $result = mysqli_query($conexion, "CALL Datos_AP($rutPostulante)") or die(mysqli_error($conexion));
                 $antecedentesPostulante = mysqli_fetch_array($result);
                 ?>
+                
                 <!-- ANTECEDENTES DEL POSTULANTE -->
                 <?php require_once 'dimensiones' .'/'. 'antecedentesEduBM.php' ?>
                                 
@@ -133,11 +135,13 @@ if('FALSE' == $existePostulante['respuesta']){
                 
                 <!-- DIM. TERRITORIAL -->
                 <?php require_once 'dimensiones' .'/'. 'dimTerritorial.php' ?>
-                <hr
+
+                <hr />
                 <br />
+                
                 <?php require_once 'dimensiones' . '/' . 'estadoCierreRev.php'; ?>
 
-                <br>
+                <br />
                 
                 <div class="form-group">
                     <div class="col-md-12">
