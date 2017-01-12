@@ -8,24 +8,21 @@ $rutPostulante = $_POST['rutPostulante'];
 $result = mysqli_query($conexion, "CALL Consulta_Rut($rutPostulante)") or die(mysqli_error($conexion));
 $existePostulante = mysqli_fetch_array($result);
 
-if ('FALSE' == $existePostulante['respuesta']) {
-    header('location: rutPostulante.php?beca=' . $tipoBeca . '&rutInvalido=' . $rutPostulante);
+if('FALSE' == $existePostulante['respuesta']){
+    header('location: rutPostulante.php?beca='.$tipoBeca.'&rutInvalido='.$rutPostulante);
     exit;
-} else {
-    ?>
-
-    <!DOCTYPE html>
-    <html lang="es">
+}else{
+?>
+<!DOCTYPE html>
+<html lang="es">
     <head>
         <title>Checklist BIBM - Becas de Mantenci&oacute;n Junaeb 2017</title>
         <?php include_once 'tagsMeta.php'; ?>
         <?php include_once 'tagsCSS.php'; ?>
         <?php include_once 'tagsFixJS.php'; ?>
-        <link href="css/estilos_checklists.css" rel="stylesheet"/>
+        <link href="css/estilos_checklists.css" rel="stylesheet" />
     </head>
-
     <body>
-
     <div class="container">
         <?php include_once 'menuInicio.php'; ?>
         <h2 class="alert alert-info text-center" id="titulo"><b>REVISI&Oacute;N BECA IND&Iacute;GENA B&Aacute;SICA &amp; MEDIA</b></h2>
@@ -42,9 +39,9 @@ if ('FALSE' == $existePostulante['respuesta']) {
                 <li id="linkTerritorial" class="pestanas"><a href="#territorial" style="background-color: #CBCB96">TERRITORIAL</a></li>
                 <li id="linkEstadoCierre" class="pestanas"><a href="#estadoCierre" style="background-color: #0076EC;">CIERRE</a></li>
             </ul>
-
+    
             <br/>
-            <!--  enctype="multipart/form-data" -->
+            
             <form action="procesarChecklistBIBM.php" method="post" id="checklistForm" class="form-horizontal" role="form">
                 <fieldset>
                     <?php
@@ -55,7 +52,14 @@ if ('FALSE' == $existePostulante['respuesta']) {
                     ?>
                     
                     <?php require_once 'dimensiones' . '/' . 'datosGenerales.php'; ?>
-
+    
+                    <?php
+                    mysqli_free_result($result);
+                    mysqli_next_result($conexion);
+                    $result = mysqli_query($conexion, "CALL verificaDocumentosPostulante('$tipoBeca', $rutPostulante)") or die(mysqli_error($conexion));
+                    $revDocumental = mysqli_fetch_assoc($result);
+                    var_dump($revDocumental);
+                    ?>
                     <!-- DOCUMENTAL -->
                     <div id="verDocumental" class="dimension" style="display: none;">
                         <h3 id="documental"><strong>REVISI&Oacute;N DOCUMENTAL</strong>
@@ -74,18 +78,21 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                     </td>
                                     <th class="text-center"><h4><strong>BI B&amp;M</strong></h4></th>
                                 </tr>
+                                <?php if( $revDocumental['organizacion_indigena'] == 'SI' ){ ?>
                                 <tr class="text-danger">
                                     <td>Certificado de participaci&oacute;n del padre, madre o representante legal en organizaci&oacute;n ind&iacute;gena</td>
                                     <td class="text-center">
                                         <input type="checkbox" name="certificadoParticipacionOrgIndigena" id="" value="COMPLETO" class="revDocumental"/>
                                     </td>
                                 </tr>
+                                <?php }if( $revDocumental['comunidad_indigena'] == 'SI' ){ ?>
                                 <tr class="text-danger">
                                     <td>Certificado se domicilia o vive en comunidad ind&iacute;gena</td>
                                     <td class="text-center">
                                         <input type="checkbox" name="certificadoSeDomiciliaViveEnComunidadIndigena" id="" value="COMPLETO" class="revDocumental"/>
                                     </td>
                                 </tr>
+                                <?php }if( $revDocumental['participa_rituales'] == 'SI' ){ ?>
                                 <tr class="text-danger">
                                     <td>Certificado de participa de pr&aacute;cticas y/o celebraciones rituales de la comunidad o pueblo al que pertenece
                                     </td>
@@ -93,49 +100,53 @@ if ('FALSE' == $existePostulante['respuesta']) {
                                         <input type="checkbox" name="certificadoParticipaDePracticasCulturalesRitualesDeLaComunidad" id="" value="COMPLETO" class="revDocumental"/>
                                     </td>
                                 </tr>
+                                <?php }if( is_numeric($revDocumental['certi_conadi']) ){ ?>
                                 <tr class="text-danger">
                                     <td>Certificado Conadi que acredite calidad ind&iacute;gena</td>
                                     <td class="text-center">
                                         <input type="checkbox" name="certificadoConadiAlumno" id="" value="COMPLETO" class="revDocumental"/>
                                     </td>
                                 </tr>
+                                <?php }if( $revDocumental['certi_embarazo'] == 'SI' ){ ?>
+                                <!-- Verificar y confirmar el tipo de dato devuelto -->                                
                                 <tr class="text-warning docOpcional">
                                     <td>Certificado de embarazo</td>
                                     <td class="text-center">
                                         <input type="checkbox" name="certificadoEmbarazo" id="" value="COMPLETO" class="revDocumental"/>
                                     </td>
                                 </tr>
+                                <?php } ?>
                             </table>
                         </div>
                     </div>
-
+    
                     <?php 
                         mysqli_free_result($result);
                         mysqli_next_result($conexion);
                         $result = mysqli_query($conexion, "CALL Datos_AP($rutPostulante)") or die(mysqli_error($conexion));
                         $antecedentesPostulante = mysqli_fetch_array($result);
                     ?>                    
-
+    
                     <?php require_once 'dimensiones' . '/' . 'antecedentesEduBM.php'; ?>
-
+    
                     <?php
                     mysqli_free_result($result);
                     mysqli_next_result($conexion);
                     $result = mysqli_query($conexion, "CALL Datos_DA($rutPostulante)") or die(mysqli_error($conexion));
                     $dimAcademica = mysqli_fetch_array($result);
                     ?>
-
+    
                     <?php require_once 'dimensiones' . '/' . 'dimAcademicaEduBM.php'; ?>
-
+    
                     <?php require_once 'dimensiones' . '/' . 'dimEconomica.php'; ?>
-
+    
                     <?php
                     mysqli_free_result($result);
                     mysqli_next_result($conexion);
                     $result = mysqli_query($conexion, "CALL Datos_DFR($rutPostulante)") or die(mysqli_error($conexion));
                     $dimFactRiesgo = mysqli_fetch_array($result);
                     ?>
-
+    
                     <?php require_once 'dimensiones' . '/' . 'dimFactoresRiesgo.php'; ?>
                     
                     <?php
@@ -144,18 +155,18 @@ if ('FALSE' == $existePostulante['respuesta']) {
                     $result = mysqli_query($conexion, "CALL Datos_DE($rutPostulante)") or die(mysqli_error($conexion));
                     $dimEducacion = mysqli_fetch_array($result);
                     ?>
-
+    
                     <?php require_once 'dimensiones' . '/' . 'dimEducacion.php'; ?>
-
+    
                     <?php
                     mysqli_free_result($result);
                     mysqli_next_result($conexion);
                     $result = mysqli_query($conexion, "CALL Datos_DS($rutPostulante)") or die(mysqli_error($conexion));
                     $dimSocioCultural = mysqli_fetch_array($result);
                     ?>
-
+    
                     <?php require_once 'dimensiones' . '/' . 'dimSocioCultural.php'; ?>
-
+    
                     <?php
                         mysqli_free_result($result);
                         mysqli_next_result($conexion);
@@ -169,9 +180,9 @@ if ('FALSE' == $existePostulante['respuesta']) {
                     <br />
                     
                     <?php require_once 'dimensiones' . '/' . 'estadoCierreRev.php'; ?>
-
+    
                     <br />
-
+    
                     <div class="form-group">
                         <div class="col-md-12">
                             <button type="submit" name="guardarBIBM" class="btn btn-primary btn-lg pull-right">Guardar Revisi&oacute;n</button>
@@ -179,14 +190,13 @@ if ('FALSE' == $existePostulante['respuesta']) {
                     </div>
                 </fieldset>
             </form>
-
+            
         </div> <!-- /pozo -->
     </div> <!-- /container -->
     <?php include_once 'tagsJS.php'; ?>
     <script src="js/logica_checklists.js"></script>
-
     </body>
-    </html>
-    <?php
+</html>
+<?php
 }
 ?>
