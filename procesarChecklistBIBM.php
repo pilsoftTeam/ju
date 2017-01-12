@@ -36,6 +36,18 @@ if (isset($_POST['estadoChecklist']) && $_POST['estadoChecklist'] != '') {
         $bibm_certificadoEmbarazo = 'INCOMPLETO';
     }
 
+    $bibm_obsRutAlumno = limpiarString($bibm_obsRutAlumno);
+    $bibm_obsNombreAlumno = limpiarString($bibm_obsNombreAlumno);
+    #var_dump($bri_obsRutAlumno, $bri_obsNombreAlumno, $bri_resultadoRutAlumno, $bri_resultadoNombreAlumno);
+
+    //*** OBSERVACIONES ***//
+    if( empty($bibm_resultadoRutAlumno) ){
+        $bibm_resultadoRutAlumno = 'CORRECTO';
+    }
+    if( empty($bibm_resultadoNombreAlumno) ){
+        $bibm_resultadoNombreAlumno = 'CORRECTO';
+    }
+
     /**
      *
      * $bibm_regionDeEjecucion
@@ -143,10 +155,12 @@ if (isset($_POST['estadoChecklist']) && $_POST['estadoChecklist'] != '') {
     #Variables generales
     
     '" . $bibm_regionDeEjecucion . "', '" . $bibm_estadoChecklist . "', '" . $bibm_codEstadoChecklist . "',
-    '" . $rutAlumno . "', " . "'" . $dvAlumno . "', '" . $bibm_nombreAlumno . "', " . "'" . $bibm_domicilioAlumno . "',
-    '" . $bibm_tipoBecaAlumno . "', '" . $bibm_nivelEducacional . "', '" . $bibm_provinciaDomicilioFamiliarAlumno . "',
-    '" . $bibm_comunaDomicilioFamiliarAlumno . "', " . "'" . $bibm_profesionalQueEvaluo . "', '" . $bibm_tipoUnidadOperativa . "',
-    '" . $bibm_institucionEvaluadora . "', '" . $bibm_rbd . "', " . "
+    '" . $rutAlumno . "', " . "'" . $dvAlumno . "', '".$bibm_resultadoRutAlumno."', '".$bibm_obsRutAlumno."',
+    '" . $bibm_nombreAlumno . "','" . $bibm_resultadoNombreAlumno."', '".$bibm_obsNombreAlumno."',
+    '" . $bibm_domicilioAlumno . "','" . $bibm_tipoBecaAlumno . "',
+    '" . $bibm_nivelEducacional . "', '" . $bibm_provinciaDomicilioFamiliarAlumno . "',
+    '" . $bibm_comunaDomicilioFamiliarAlumno . "', " . "'" . $bibm_profesionalQueEvaluo . "',
+    '" . $bibm_tipoUnidadOperativa . "','" . $bibm_institucionEvaluadora . "', '" . $bibm_rbd . "', " . "
     
    
     #Variables normales
