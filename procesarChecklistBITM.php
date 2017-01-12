@@ -17,7 +17,6 @@ if (isset($_POST['estadoChecklist']) && $_POST['estadoChecklist'] != '') {
 
     //*** OBSERVACIONES ***//
 
-    //Commentarios
     if (empty($bitm_resultadoRutAlumno)) {
         $bitm_resultadoRutAlumno = 'CORRECTO';
     }
