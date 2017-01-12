@@ -16,6 +16,8 @@ if (isset($_POST['estadoChecklist']) && $_POST['estadoChecklist'] != '') {
     #var_dump($bri_obsRutAlumno, $bri_obsNombreAlumno, $bri_resultadoRutAlumno, $bri_resultadoNombreAlumno);
 
     //*** OBSERVACIONES ***//
+
+    //Commentarios
     if (empty($bitm_resultadoRutAlumno)) {
         $bitm_resultadoRutAlumno = 'CORRECTO';
     }
@@ -41,7 +43,7 @@ if (isset($_POST['estadoChecklist']) && $_POST['estadoChecklist'] != '') {
         settype(trim($bitm_acreditadoPorCertificadoConadiPapel), "integer");
         settype(trim($bitm_acreditadoPorCertificadoConadiEmp), "integer");
 
-    
+
         #Variables antecedentes
         $query = "CALL BITM_SUP_InsertarDatos(" . $idRevisor . "',
         

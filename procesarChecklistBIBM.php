@@ -19,7 +19,7 @@ if (isset($_POST['estadoChecklist']) && $_POST['estadoChecklist'] != '') {
 
     list($rutAlumno, $dvAlumno) = explode('-', $bibm_rutAlumno);
 
-
+//Comentarios
     if (empty($bibm_certificadoConadiAlumno)) {
         $bibm_certificadoConadiAlumno = 'INCOMPLETO';
     }
