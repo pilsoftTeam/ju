@@ -58,7 +58,6 @@ if('FALSE' == $existePostulante['respuesta']){
                     mysqli_next_result($conexion);
                     $result = mysqli_query($conexion, "CALL verificaDocumentosPostulante('$tipoBeca', $rutPostulante)") or die(mysqli_error($conexion));
                     $revDocumental = mysqli_fetch_assoc($result);
-                    //var_dump($revDocumental);
                     ?>
                     <!-- DOCUMENTAL -->
                     <div id="verDocumental" class="dimension" style="display: none;">
