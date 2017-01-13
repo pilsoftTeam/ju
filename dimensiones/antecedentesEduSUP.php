@@ -311,13 +311,26 @@
                             </td>
                         </tr>
                         <!-- Sólo Aplica para BRI y las BI -->
-                        <?php if( $tipoBeca == 'BRI' || $tipoBeca == 'BISUP' ){ ?>
+                        <?php if( $tipoBeca == 'BRI' || $tipoBeca == 'BISUP' ){
+                            mysqli_free_result($result);
+                            mysqli_next_result($conexion);
+                            $query = "CALL verificaDatosPrecargados('$tipoBeca', $rutPostulante)";
+                            $result = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+                            $datosPrecarga = mysqli_fetch_assoc($result);                            
+                        ?>
                         <tr>                        
                             <td colspan="3" class="text-right text-primary" style="background-color: yellow;">
                                 <span><b><em>&iquest; N&deg; de certificado CONADI se encuentra &quot;precargado&quot; en Sinab ?</em></b></span>
                             </td>
                             <td class="text-center">
-                                <input type="checkbox" name="cerfificadoConadiPrecargado" id="cerfificadoConadiPrecargado" value="SI" />
+                                <?php if( is_numeric($datosPrecarga['certificado_conadi']) ){?>
+                                <!-- <img src="images/ok.png" title="<?php echo $datosPrecarga['certificado_conadi']; ?>" /> -->
+                                <span class="label label-success"><?php echo 'N&deg; '.$datosPrecarga['certificado_conadi']; ?></span>
+                                <input type="hidden" name="cerfificadoConadiPrecargado" value="<?php echo $datosPrecarga['certificado_conadi']; ?>" />
+                                <?php }else{?>
+                                <img src="images/unchecked.gif" />
+                                <input type="hidden" name="cerfificadoConadiPrecargado" value="NO" />
+                                <?php }?>
                             </td>
                         </tr>
                         <?php } ?>
@@ -369,10 +382,16 @@
                                 <span><b><em>&iquest; Estudiante cuenta con apellido ind&iacute;gena &quot;directo&quot; en Sinab ?</em></b></span>
                             </td>
                             <td class="text-center">
-                                <input type="checkbox" name="apellidoIndigenaDirecto" id="apellidoIndigenaDirecto" value="SI" />
+                                <?php if( $datosPrecarga['acreditacion_por_apellidos']=='SI' ){?>
+                                <img src="images/ok.png" />
+                                <input type="hidden" name="apellidoIndigenaDirecto" value="SI" />
+                                <?php }else{?>
+                                <img src="images/unchecked.gif" />
+                                <input type="hidden" name="apellidoIndigenaDirecto" value="NO" />
+                                <?php }?>
                             </td>
                         </tr>
-                        <?php } ?>
+                        <?php }?>
                         <!-- /apellidoIndigenaDirecto -->                        
                     </table>
                 </div>
