@@ -18,7 +18,7 @@ $nombreTabla = strtolower($beca) . '_sup_datos_captura_checklists';
 //Query. El preg replace es para sacar las comillas que vienen en el rut. Se puede cambiar a otra variable si quieres
 
 
-$sql = "SELECT * FROM " . $nombreTabla . " WHERE " . $nombreTabla . ".rutAlumno = '" . preg_replace('/(^[\"\']|[\"\']$)/', '', $rut) . "'";
+$sql = "SELECT * FROM " . $nombreTabla . " WHERE " . $nombreTabla . ".rutAlumno = '" . preg_replace('/(^[\"\']|[\"\']$)/', '', $rut) . "' LIMIT 1";
 
 $result = mysqli_query($conexion, $sql) or die("Error : " . mysqli_error($conexion));
 
@@ -26,8 +26,8 @@ if ($result->num_rows == 0) {
     return false;
 } else {
     $rows = [];
-    while ($row = $result->fetch_assoc()) {
-        $rows[] = array_map('utf8_encode', $row);
+    while ($fila = $result->fetch_assoc()) {
+        $rows[] = array_map('utf8_encode', $fila);
     }
     //salida a json para el script ajax
     echo json_encode($rows);
